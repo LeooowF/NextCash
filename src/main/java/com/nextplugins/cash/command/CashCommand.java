@@ -2,6 +2,7 @@ package com.nextplugins.cash.command;
 
 import com.nextplugins.cash.NextCash;
 import com.nextplugins.cash.api.event.operations.CashDepositEvent;
+import com.nextplugins.cash.api.event.operations.CashGiveAllEvent;
 import com.nextplugins.cash.api.event.operations.CashSetEvent;
 import com.nextplugins.cash.api.event.operations.CashWithdrawEvent;
 import com.nextplugins.cash.api.event.transactions.TransactionRequestEvent;
@@ -207,6 +208,19 @@ public final class CashCommand {
             sender.sendMessage(MessageValue.get(MessageValue::invalidTarget));
         }
 
+    }
+
+    @Command(
+            name = "cash.giveall",
+            usage = "/cash giveall {quantia} ",
+            description = "Utilize para dar cash a todos jogadores.",
+            permission = "nextcash.command.giveall"
+    )
+    public void cashGiveAll(Context<CommandSender> context, double amount) {
+
+        CashGiveAllEvent cashGiveAllEvent = new CashGiveAllEvent(amount);
+
+        Bukkit.getPluginManager().callEvent(cashGiveAllEvent);
     }
 
     @Command(

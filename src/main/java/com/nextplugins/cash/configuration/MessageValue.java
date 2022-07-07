@@ -33,6 +33,7 @@ public final class MessageValue implements ConfigurationInjectable {
 
     @ConfigField("operations.set") private String setAmount;
     @ConfigField("operations.add") private String addAmount;
+    @ConfigField("operations.giveall") private String giveAll;
     @ConfigField("operations.remove") private String removeAmount;
     @ConfigField("operations.reset") private String resetBalance;
     @ConfigField("operations.see") private String seeBalance;
